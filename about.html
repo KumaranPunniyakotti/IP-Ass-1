@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+
+li a:hover {
+  background-color: #111111;
+}
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+#div1 {
+  width: 200px;
+  height: 200px;
+  padding: 50px;
+  border: 10px solid royalblue;
+  background-color: red;
+}
+#divv {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+}
+
+@keyframes example {
+  0%   { left:0px; top:0px;}
+  25%  { left:200px; top:0px;}
+  50%  { left:200px; top:200px;}
+  75%  { left:0px; top:200px;}
+  100% { left:0px; top:0px;}
+}
+</style>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body style="background-color: black; border: 10px;">
+    
+<ul>
+  <li><a href="home.html">Home</a></li>
+  <li><a href="https://kumaranashobaalbi.herokuapp.com/">Search</a></li>
+  <li><a href="contact.html">Contact</a></li>
+  <li><a href="about.html">Rest</a></li>
+</ul>
+
+<h1 style="background-color: aqua; text-shadow:  2px 2px #FF0000;"> Try dragging the random generated moving image into the red square:</h1>
+<center>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<div id = "divv">
+<img id="drag1" src="https://picsum.photos/1920/1080" draggable="true" ondragstart="drag(event)" width="150" height="150">
+<br>
+</div>
+
+<center><h1>Example of embed items in html</h1></center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UhVjp48U2Oc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+<center><iframe src="https://calendar.google.com/calendar/embed?src=cahgfo8s4v0upegp100eoujbv0%40group.calendar.google.com&ctz=Asia%2FKolkata" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe></center>
+</body>
+</html>
